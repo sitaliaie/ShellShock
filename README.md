@@ -1,8 +1,8 @@
 # Rshell
 #### Written By
 
-* Hau Chen \([github]\)(https://github.com/HauChen)
-* Stephanie Italiaie \([github]\)(https://github.com/sitaliaie)
+* Hau Chen [\(github\)](https://github.com/HauChen)
+* Stephanie Italiaie [\(github\)](https://github.com/sitaliaie)
 
 ## Introduction
 
