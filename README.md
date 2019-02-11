@@ -21,6 +21,16 @@ Compile and run using
 
 `./a.out`
 
+To use gtest, follow these commands instead.
+
+Within the ShellShock folder
+
+`cmake3 .`
+
+`make`
+
+`./test`
+
 ## Design
 We will be using a composite design strategy where “cmd” and “connector” act as composite classes. "exit", "||", "&&", and ";" are the leaves in this project that inherit from the composites. User interface and expression parsing is done in the main file with the Boost C++ library.
 
@@ -42,11 +52,11 @@ We will be using a composite design strategy where “cmd” and “connector”
    - We have no clue why this happens, but we are working on a fix; same thing occurs with `(echo hello && echo bye)` 
    - The error occurs with the format `(command && command)`
 ### From Phase 3
- * When using control-D short cut in our rhsell, it will output an infinite loop of printing our shell username, and has to force quit using control-C
+ * When using control-D short cut in our ShellShock, it will output an infinite loop of printing our shell username, and has to force quit using control-C
  * Not really an error, but more of a muisance. Say you use `make` to compile the program in the src folder. This generates a .o file for each .cpp. After this, say you do a `ls > input.txt`. Doing this will put each of the files (.o, .cpp, and the a.out file) into the text file. This functionality is quite fine and expected, but doing a `cat < input.txt` will cause the terminal to become a chaotic mess, usually needing termination with ctrl-c. Not sure if it's an infinite loop because the first time we encountered it, we immediately put a stop to it. Pretty sure it's outputting the .o files and what is written in them, but we can't understand the code in there so it's not really needed. Long story short, should an input file have file names and you as the user would like to cat the files in there, make sure that the files in the text file are ONLY .cpp files or your terminal will look like it's being hacked.
 
 # Fixed Bugs
 * ~~git status will return a fatal error (fatal: Not a git repository (or any of the parent directories): .git) (needed to test on hammer, not actually an issue)~~
-* ~~used to be able to exit rshell by typing exit once, but now takes two attempts to exit~~ (fixed 11/17)
+* ~~used to be able to exit ShellShock by typing exit once, but now takes two attempts to exit~~ (fixed 11/17)
 * ~~when trying to do googletest and run the make command, it will output error because it is not able to target our test.cpp file~~ (fixed 11/28)
 * ~~when try to complied test.cpp file, it output error of not able to locat the file gtest/gtest.h~~ (fixed 11/28)
