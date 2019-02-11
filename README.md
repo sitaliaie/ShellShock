@@ -1,4 +1,4 @@
-# Rshell
+# ShellShock
 #### Written By
 
 * Hau Chen [\(github\)](https://github.com/HauChen)
