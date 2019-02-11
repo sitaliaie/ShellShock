@@ -1,8 +1,8 @@
 # ShellShock
 #### Written By
 
-* Hau Chen [\(github\)](https://github.com/HauChen)
 * Stephanie Italiaie [\(github\)](https://github.com/sitaliaie)
+* Hau Chen [\(github\)](https://github.com/HauChen)
 
 ## Introduction
 
@@ -42,6 +42,7 @@ We will be using a composite design strategy where “cmd” and “connector”
 * typing in just a comment like `#echo hello` will return a segmentation fault, but putting in `ls #echo hello` will work as intended
 * putting in something like `ls; exit` will return an infinite loop 
 * putting in two commands like `echo hello; ls -a` will throw an out of range error
+
 ### From Phase 2
 * precedence operator not fully supported; 
 * `test -e test/file/path` and any sort of version of this line (a different flag) will always return false
@@ -51,6 +52,7 @@ We will be using a composite design strategy where “cmd” and “connector”
 * `(echo A && echo B) || (echo C && echo D)` will return an infinite loop where the console will cout `Error: Parentheses don't match.`
    - We have no clue why this happens, but we are working on a fix; same thing occurs with `(echo hello && echo bye)` 
    - The error occurs with the format `(command && command)`
+   
 ### From Phase 3
  * When using control-D short cut in our ShellShock, it will output an infinite loop of printing our shell username, and has to force quit using control-C
  * Not really an error, but more of a muisance. Say you use `make` to compile the program in the src folder. This generates a .o file for each .cpp. After this, say you do a `ls > input.txt`. Doing this will put each of the files (.o, .cpp, and the a.out file) into the text file. This functionality is quite fine and expected, but doing a `cat < input.txt` will cause the terminal to become a chaotic mess, usually needing termination with ctrl-c. Not sure if it's an infinite loop because the first time we encountered it, we immediately put a stop to it. Pretty sure it's outputting the .o files and what is written in them, but we can't understand the code in there so it's not really needed. Long story short, should an input file have file names and you as the user would like to cat the files in there, make sure that the files in the text file are ONLY .cpp files or your terminal will look like it's being hacked.
