@@ -1,0 +1,3 @@
+echo this_should_print
+exit
+echo this_should_not_print

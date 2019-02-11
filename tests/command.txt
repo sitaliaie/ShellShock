@@ -1,0 +1,3 @@
+ls -a # comment that works
+#no commands executed
+exit # ok
